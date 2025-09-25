@@ -30,6 +30,7 @@ import {
   Calendar, // Added for the year dropdown
 } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 // --- MOCK DATA ---
 const recentActivities = [
@@ -88,9 +89,30 @@ export default function DashboardLayout({
     },
   };
 
+  const pathname = usePathname();
+
+  // const isActive = (href: string) => {
+  //   if (href == "/admin") return true;
+  //   if (href == "/admin/clg") return true;
+  //   return false;
+  // };
+  const isActive = (href: string) => {
+    return pathname === href;
+  };
+
   const navLinks = [
-    { href: "/admin", label: "Dashboard", icon: Home, active: true },
-    { href: "#", label: "College Management", icon: Landmark },
+    {
+      href: "/admin",
+      label: "Dashboard",
+      icon: Home,
+      active: isActive("/admin"),
+    },
+    {
+      href: "/admin/clg",
+      label: "College Management",
+      icon: Landmark,
+      active: isActive("/admin/clg"),
+    },
     { href: "#", label: "Faculty & Staff", icon: UserCheck },
     { href: "#", label: "Student Management", icon: Users },
     { href: "#", label: "Academic Programs", icon: BookOpen },

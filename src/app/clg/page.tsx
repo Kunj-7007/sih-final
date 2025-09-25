@@ -338,7 +338,7 @@ export default function CollegeAdminDashboard() {
         {/* Header */}
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <h1 className={`${themeConfig.text}`}>College Dashboard</h1>
+            <h1 className={`${themeConfig.text}`}>Hello , Admin</h1>
             <p className={`${themeConfig.textMuted} `}>
               Welcome back! Here's your college overview for today.
             </p>

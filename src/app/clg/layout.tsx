@@ -32,6 +32,7 @@ import {
   Calendar, // Added for consistency, can be used for year filter
 } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 // --- MOCK DATA ---
 const recentActivities = [
@@ -91,9 +92,19 @@ export default function DashboardLayout({
     },
   };
 
+  const pathname = usePathname();
+  const isActive = (href: string) => {
+    return pathname === href;
+  };
+
   const navLinks = [
-    { href: "/clg", label: "Dashboard", icon: Home, active: true },
-    { href: "#", label: "HODs", icon: Users2 },
+    { href: "/clg", label: "Dashboard", icon: Home, active: isActive("/clg") },
+    {
+      href: "/clg/dept",
+      label: "Department",
+      icon: Users2,
+      active: isActive("/clg/dept"),
+    },
     { href: "#", label: "Faculty", icon: UserCheck },
     { href: "#", label: "Students", icon: Users },
     { href: "#", label: "Placements", icon: Briefcase },
@@ -215,59 +226,64 @@ export default function DashboardLayout({
                 <SheetContent side="left" className="w-72"></SheetContent>
               </Sheet>
               <p className="text-2xl sm:text-3xl font-bold text-gray-900">
-                Admin
+                College Dashboard
               </p>
             </div>
 
             {/* Right */}
+
             <div className="flex items-center gap-3">
               {/* --- [NEW] Department Dropdown --- */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="gap-2">
-                    <Briefcase className="h-4 w-4" />
-                    <span className="hidden md:inline-block max-w-28 truncate">
-                      {selectedDepartment}
-                    </span>
-                    <ChevronDown className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-64">
-                  <DropdownMenuLabel>Select Department</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  {departments.map((dept) => (
-                    <DropdownMenuItem
-                      key={dept}
-                      onSelect={() => setSelectedDepartment(dept)}
-                    >
-                      {dept}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {isActive("/clg") && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="gap-2">
+                      <Briefcase className="h-4 w-4" />
+                      <span className="hidden md:inline-block max-w-28 truncate">
+                        {selectedDepartment}
+                      </span>
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-64">
+                    <DropdownMenuLabel>Select Department</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    {departments.map((dept) => (
+                      <DropdownMenuItem
+                        key={dept}
+                        onSelect={() => setSelectedDepartment(dept)}
+                      >
+                        {dept}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
 
               {/* Academic Year Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="gap-2">
-                    <Calendar className="h-4 w-4" />
-                    <span className="hidden md:block">{selectedYear}</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuLabel>Academic Year</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  {academicYears.map((year) => (
-                    <DropdownMenuItem
-                      key={year}
-                      onSelect={() => setSelectedYear(year)}
-                    >
-                      {year}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {isActive("/clg") && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="gap-2">
+                      <Calendar className="h-4 w-4" />
+                      <span className="hidden md:block">{selectedYear}</span>
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>Academic Year</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    {academicYears.map((year) => (
+                      <DropdownMenuItem
+                        key={year}
+                        onSelect={() => setSelectedYear(year)}
+                      >
+                        {year}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              )}
 
               {/* Notifications */}
               <DropdownMenu>

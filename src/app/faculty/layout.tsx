@@ -33,7 +33,14 @@ import {
   UserCheck,
   BedDouble,
   Wallet,
+  Building,
+  Building2,
+  BookOpenText,
+  ClipboardCheck,
+  FileText,
+  GraduationCap,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 // ---------- Notifications ----------
 const recentActivities = [
@@ -68,22 +75,39 @@ const theme = {
   primaryBg: "bg-[#001675]",
 };
 
-const navLinks = [
-  { href: "/mentor", label: "Dashboard", icon: Home, active: true },
-  // { href: "/mentor/hods", label: "HODs", icon: Users2 },
-  //   { href: "/mentor/faculty", label: "Faculty", icon: UserCheck },
-  { href: "/mentor/students", label: "Students", icon: Users },
-  { href: "/mentor/placements", label: "Placements", icon: Briefcase },
-  { href: "/mentor/hostel", label: "Hostel", icon: BedDouble },
-  { href: "/mentor/library", label: "Library", icon: BookOpen },
-];
-
 // ---------- Layout ----------
 export default function MentorLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    return pathname === href;
+  };
+
+  const navLinks = [
+    {
+      href: "/faculty",
+      label: "Dashboard",
+      icon: Home,
+      active: isActive("/faculty"),
+    },
+    // { href: "/mentor/hods", label: "HODs", icon: Users2 },
+    //   { href: "/mentor/faculty", label: "Faculty", icon: UserCheck },
+    {
+      href: "/faculty/student",
+      label: "Students",
+      icon: Users,
+      active: isActive("/faculty/student"),
+    },
+    { href: "#", label: "Subjects", icon: BookOpenText },
+    { href: "#", label: "Attendance", icon: ClipboardCheck },
+    { href: "#", label: "Assignments", icon: FileText },
+    { href: "#", label: "Campus", icon: GraduationCap },
+  ];
+
   return (
     <div className={`min-h-screen ${theme.bg}`}>
       <div className="grid min-h-screen w-full md:grid-cols-[280px_1fr]">
@@ -196,7 +220,7 @@ export default function MentorLayout({
                 </SheetContent>
               </Sheet>
               <p className="text-2xl sm:text-3xl  l font-bold text-gray-900">
-                Dr. Himani Trivedi
+                Faculty Dashboard
               </p>
 
               {/* <div className="relative hidden md:block">

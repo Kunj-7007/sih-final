@@ -98,8 +98,6 @@ export default function PrincipalDashboardLayout({
     { href: "#", label: "Students", icon: Users },
     { href: "#", label: "Placements", icon: Briefcase },
     { href: "#", label: "Faculty Leaves", icon: CalendarCheck }, // Changed from Hostel
-    { href: "#", label: "Library", icon: BookOpen },
-    
   ];
 
   return (

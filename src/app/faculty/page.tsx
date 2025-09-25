@@ -191,7 +191,9 @@ export default function FacultyDashboardPage() {
       {/* --- [NEW] Header Section --- */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className={`${themeConfig.text}`}>Faculty Dashboard</h1>
+          <h1 className={`${themeConfig.text}`}>
+            Welcome , Dr. Himani Trivedi
+          </h1>
           <p className="text-slate-600 mt-1">
             Analytics and management for Dr. Himani Trivedi (CSE Dept).
           </p>
