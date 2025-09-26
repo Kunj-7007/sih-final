@@ -83,7 +83,6 @@ const navLinks = [
   { href: "/mentor/Subjects", label: "My Subjects", icon: BookOpenText },
   { href: "/mentor/Assignments", label: "Assignments", icon: FileText },
   // { href: "/mentor/hostel", label: "Hostel", icon: BedDouble },
-  // { href: "/mentor/library", label: "Library", icon: BookOpen },
 ];
 
 // ---------- Layout ----------
