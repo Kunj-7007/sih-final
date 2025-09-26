@@ -158,7 +158,7 @@ const KeyStat = ({
 );
 
 // --- MAIN COLLEGE CARD COMPONENT ---
-export const CollegeCard = ({
+const CollegeCard = ({
   college,
 }: {
   college: (typeof collegesData)[0];
