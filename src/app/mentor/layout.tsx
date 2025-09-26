@@ -33,6 +33,12 @@ import {
   UserCheck,
   BedDouble,
   Wallet,
+  Building,
+  Building2,
+  BookOpenText,
+  ClipboardCheck,
+  FileText,
+  GraduationCap,
 } from "lucide-react";
 
 // ---------- Notifications ----------
@@ -73,9 +79,11 @@ const navLinks = [
   // { href: "/mentor/hods", label: "HODs", icon: Users2 },
   { href: "/mentor/faculty", label: "Faculty", icon: UserCheck },
   { href: "/mentor/students", label: "Students", icon: Users },
-  { href: "/mentor/placements", label: "Placements", icon: Briefcase },
-  { href: "/mentor/hostel", label: "Hostel", icon: BedDouble },
-  { href: "/mentor/library", label: "Library", icon: BookOpen },
+  { href: "/mentor/Attendance", label: "Attendance", icon: ClipboardCheck },
+  { href: "/mentor/Subjects", label: "My Subjects", icon: BookOpenText },
+  { href: "/mentor/Assignments", label: "Assignments", icon: FileText },
+  // { href: "/mentor/hostel", label: "Hostel", icon: BedDouble },
+  // { href: "/mentor/library", label: "Library", icon: BookOpen },
 ];
 
 // ---------- Layout ----------

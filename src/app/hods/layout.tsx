@@ -76,9 +76,9 @@ const navLinks = [
   { href: "/mentor/faculty", label: "Faculty", icon: UserCheck },
   { href: "/mentor/students", label: "Students", icon: Users },
   { href: "/mentor/placements", label: "Placements", icon: Briefcase },
-  { href: "/mentor/hostel", label: "Hostel", icon: BedDouble },
-  { href: "/mentor/library", label: "Library", icon: BookOpen },
-  { href: "/mentor/settings", label: "Settings", icon: Settings },
+  // { href: "/mentor/hostel", label: "Hostel", icon: BedDouble },
+  // { href: "/mentor/library", label: "Library", icon: BookOpen },
+  // { href: "/mentor/settings", label: "Settings", icon: Settings },
 ];
 
 // ---------- Layout ----------
@@ -189,7 +189,7 @@ export default function MentorLayout({ children }: { children: React.ReactNode }
                 </SheetContent>
               </Sheet>
                  <p className="text-2xl sm:text-3xl  l font-bold text-gray-900">
-                    Dr. Ashish Patel
+                    HOD Dashboard
                   </p>
                 
 
